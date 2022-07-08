@@ -1,4 +1,5 @@
-import { useDataTableContext } from "../../../contexts/dataTableContext"
+import { useSearchParams } from "react-router-dom"
+import { useDataTableContext } from "~/lib/contexts/DataTableContext"
 
 type PageItemProps = {
   tableId: string
@@ -6,12 +7,11 @@ type PageItemProps = {
   text: string
 }
 
-export default function PageItem({ tableId, pageIndex, text }: PageItemProps) {
+function PageItem({ tableId, pageIndex, text }: PageItemProps) {
   const {
     state: { totalPages },
-    searchParams,
-    setSearchParams,
   } = useDataTableContext()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const currentPage = parseInt(searchParams.get("currentPage") ?? "1", 10)
   const disabled = (currentPage === 1 && pageIndex === 0) || (currentPage === totalPages && pageIndex === totalPages + 1) || totalPages < 2
@@ -48,3 +48,5 @@ export default function PageItem({ tableId, pageIndex, text }: PageItemProps) {
     </li>
   )
 }
+
+export default PageItem

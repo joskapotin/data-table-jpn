@@ -1,7 +1,7 @@
-# data-table-react
+# data-table-jpn
 
-A library of React components created using "create-react-app".
+A react component that display a table with features
 
-## Installation
+## Prerequisites
 
-Run the following command: "npm install @jpotin/data-table-react"
+The component use searchparams from react-router so it need to be use within a route

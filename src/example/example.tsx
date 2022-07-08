@@ -1,16 +1,29 @@
-import App from "../lib/index"
-import useAsync from "./hooks/useAsync"
-import { getEmployees } from "./services/api"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import DataTable from "~/lib/data-table"
+import mockedEmployees from "./mock/employees"
+
+const data = {
+  labels: [
+    { title: "First Name", data: "firstName" },
+    { title: "Last Name", data: "lastName" },
+    { title: "Start Date", data: "startDate" },
+    { title: "Department", data: "department" },
+    { title: "Date of Birth", data: "dateOfBirth" },
+    { title: "Street", data: "street" },
+    { title: "City", data: "city" },
+    { title: "State", data: "state" },
+    { title: "Zip Code", data: "zipCode" },
+  ],
+  entries: mockedEmployees,
+}
 
 function Example() {
-  const { loading, error, value } = useAsync(getEmployees)
-
   return (
-    <>
-      {loading && <div>Loading...</div>}
-      {value && <App table={value} />}
-      {error && <div>{error}</div>}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<DataTable data={data} />} />
+      </Routes>
+    </Router>
   )
 }
 

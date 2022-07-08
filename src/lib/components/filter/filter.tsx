@@ -1,13 +1,14 @@
 import type { ChangeEvent } from "react"
-import { useDataTableContext } from "../../contexts/dataTableContext"
+import { useSearchParams } from "react-router-dom"
 
-export default function Filter() {
-  const { searchParams, setSearchParams } = useDataTableContext()
+function Filter() {
+  const [searchParams, setSearchParams] = useSearchParams()
   const filter = searchParams.get("filter") ?? ""
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > 0) {
       searchParams.set("filter", e.target.value)
+      searchParams.set("currentPage", "1")
       setSearchParams(searchParams)
     } else {
       searchParams.delete("filter")
@@ -30,3 +31,5 @@ export default function Filter() {
     </label>
   )
 }
+
+export default Filter

@@ -1,25 +1,22 @@
 import type { ChangeEvent } from "react"
+import { useSearchParams } from "react-router-dom"
+import options from "~/lib/constants/options"
 
-import { useDataTableContext } from "../../contexts/dataTableContext"
-import { setPageSize } from "../../reducer/action-creators"
+function PageSize() {
+  const [searchParams, setSearchParams] = useSearchParams()
 
-export default function PageSize() {
-  const {
-    state: { pageSize },
-    dispatch,
-  } = useDataTableContext()
+  const pageSize = parseInt(searchParams.get("pageSize") ?? options.pageSizeOptions[0].toString(), 10)
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    dispatch(setPageSize(Number(e.target.value)))
+    searchParams.set("pageSize", e.target.value)
+    setSearchParams(searchParams)
   }
-
-  const pageSizeOptions = [10, 25, 50, 100]
 
   return (
     <label htmlFor="page-size">
       show{" "}
       <select className="form-select d-inline-block w-auto" aria-label="show entries" name="page-size" onChange={handleChange} value={pageSize}>
-        {pageSizeOptions.map((option: number) => (
+        {options.pageSizeOptions.map((option: number) => (
           <option key={`option-${option}`} value={option}>
             {option}
           </option>
@@ -29,3 +26,5 @@ export default function PageSize() {
     </label>
   )
 }
+
+export default PageSize

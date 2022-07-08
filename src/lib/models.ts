@@ -3,7 +3,7 @@ export type Labels = Label[]
 export type Entry = { [key: string]: string }
 export type Entries = Entry[]
 
-export type Table = {
+export type Data = {
   labels: Labels
   entries: Entries
 }
@@ -11,7 +11,6 @@ export type Table = {
 export type DataTableState = {
   labels: Labels
   entries: Entries
-  pageSize: number
   totalPages: number
   filterResults: number
 }
