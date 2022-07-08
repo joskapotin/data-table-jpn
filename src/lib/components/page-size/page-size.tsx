@@ -1,5 +1,5 @@
 import type { ChangeEvent } from "react"
-import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
 import { setPageSize } from "~/lib/reducer/action-creators"
 import options from "~/lib/constants/options"
 

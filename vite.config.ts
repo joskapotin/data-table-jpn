@@ -8,9 +8,9 @@ import tsconfigPaths from "vite-tsconfig-paths"
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/lib/data-table.tsx"),
+      entry: path.resolve(__dirname, "src/lib/dataTable.tsx"),
       name: "DataTable",
-      fileName: format => `data-table.${format}.js`,
+      fileName: format => `dataTable.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],

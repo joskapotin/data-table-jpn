@@ -1,8 +1,8 @@
-import { createContext, useContext, useReducer, useMemo } from "react"
+import { createContext, useReducer, useMemo } from "react"
 import type { Dispatch, ReactNode } from "react"
-import reducer, { initialState } from "../reducer/reducer"
-import type { Action } from "../reducer/actions"
-import type { DataTableState, Data } from "../models"
+import reducer from "~/lib/reducer/reducer"
+import type { Action } from "~/lib/reducer/actions"
+import type { DataTableState } from "~/lib/models"
 
 type DataTableContextType = {
   state: DataTableState
@@ -10,20 +10,15 @@ type DataTableContextType = {
 }
 
 type DataTableContextProviderProps = {
-  data: Data
+  initialState: DataTableState
   children: ReactNode
 }
 
 const DataTableContext = createContext<DataTableContextType | undefined>(undefined)
 
-function DataTableContextProvider({ data, children }: DataTableContextProviderProps) {
-  const init: DataTableState = {
-    ...initialState,
-    ...data,
-    totalPages: Math.ceil(data.entries.length / initialState.pageSize),
-    filterResults: data.entries,
-  }
-  const [state, dispatch] = useReducer(reducer, init)
+function DataTableContextProvider({ initialState, children }: DataTableContextProviderProps) {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
   const value: DataTableContextType = useMemo(
     () => ({
       state,
@@ -35,13 +30,5 @@ function DataTableContextProvider({ data, children }: DataTableContextProviderPr
   return <DataTableContext.Provider value={value}>{children}</DataTableContext.Provider>
 }
 
-function useDataTableContext() {
-  const context = useContext(DataTableContext)
-  if (context === undefined) {
-    throw new Error("useDataTableContext must be used within a CountProvider")
-  }
-  return context
-}
-
 export default DataTableContextProvider
-export { useDataTableContext }
+export { DataTableContext }

@@ -1,4 +1,4 @@
-import DataTable from "~/lib/data-table"
+import DataTable from "~/lib/dataTable"
 import mockedEmployees from "./mock/employees"
 
 const data = {

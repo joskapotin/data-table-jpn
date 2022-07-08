@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { v4 as uuidv4 } from "uuid"
-import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
 import { sortEntries } from "~/lib/utilities/helpers"
 import Row from "./row/row"
 import type { Entry } from "~/lib/models"

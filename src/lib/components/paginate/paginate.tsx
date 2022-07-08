@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import { v4 as uuidv4 } from "uuid"
-import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
 import PageItem from "./page-item/page-item"
 
 type PaginateProps = {

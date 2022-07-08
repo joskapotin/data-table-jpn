@@ -4,15 +4,15 @@ export type IsDateFunction = (date: string) => boolean
 
 export type SortEntriesProps = {
   entries: Entries
-  sortBy: string
-  sortDirection: string
+  sortBy?: string
+  sortDirection?: string
 }
 
 export type SortEntriesFunction = (props: SortEntriesProps) => Entries
 
 export type FilterEntriesProps = {
   entries: Entries
-  filter: string
+  filter?: string
 }
 
 export type FilterEntriesFunction = (props: FilterEntriesProps) => Entries

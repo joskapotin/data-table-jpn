@@ -1,4 +1,4 @@
-import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
 import { setCurrentPage } from "~/lib/reducer/action-creators"
 
 type PageItemProps = {

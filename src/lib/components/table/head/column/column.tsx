@@ -1,4 +1,4 @@
-import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
 import { setSortBy, setSortDirection } from "~/lib/reducer/action-creators"
 import type { Label } from "~/lib/models"
 
@@ -11,26 +11,28 @@ function Column({ label }: ColumnProps) {
   const { sortBy, sortDirection } = state
 
   const handleClick = () => {
-    dispatch(setSortBy(label.data))
-    switch (sortDirection) {
-      case "asc":
-        dispatch(setSortDirection("desc"))
-        break
-      case "desc":
-        dispatch(setSortBy(""))
-        dispatch(setSortDirection("none"))
-        break
-      default:
-        dispatch(setSortDirection("asc"))
+    if (sortBy === label.data) {
+      switch (sortDirection) {
+        case "asc":
+          dispatch(setSortDirection("desc"))
+          break
+        case "desc":
+          dispatch(setSortDirection(undefined))
+          dispatch(setSortBy(undefined))
+          break
+        default:
+          dispatch(setSortDirection("asc"))
+      }
+    } else {
+      dispatch(setSortBy(label.data))
+      dispatch(setSortDirection("asc"))
     }
   }
 
   const getLabelClassName = () => {
-    if (label.data === sortBy) {
-      if (sortDirection === "asc") return "sorting sorting_asc"
-      return "sorting sorting_desc"
-    }
-    return "sorting"
+    if (label.data !== sortBy) return "sorting"
+    if (sortDirection === "asc") return "sorting sorting_asc"
+    if (sortDirection === "desc") return "sorting sorting_desc"
   }
 
   console.info("column rendered")

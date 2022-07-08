@@ -2,10 +2,13 @@ export type Label = { title: string; data: string }
 export type Labels = Label[]
 export type Entry = { [key: string]: string }
 export type Entries = Entry[]
+export type SortDirection = "asc" | "desc" | undefined
 
 export type Data = {
   labels: Labels
   entries: Entries
+  sortBy?: string
+  sortDirection?: "asc" | "desc"
 }
 
 export type DataTableState = {
@@ -14,8 +17,8 @@ export type DataTableState = {
   currentPage: number
   totalPages: number
   pageSize: number
-  filter: string
+  filter?: string
   filterResults: Entries
-  sortBy: string
-  sortDirection: "asc" | "desc" | "none"
+  sortBy?: string
+  sortDirection?: SortDirection
 }

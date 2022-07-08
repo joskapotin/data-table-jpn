@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid"
-import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
 import Column from "./column/column"
 import type { Label } from "~/lib/models"
 

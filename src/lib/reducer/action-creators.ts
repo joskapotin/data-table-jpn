@@ -1,5 +1,5 @@
+import { SortDirection } from "~/lib/models"
 import { ActionTypes } from "./action-types"
-import type { Entries } from "../models"
 
 const setCurrentPage = (currentPage: number) => ({
   type: ActionTypes.SET_CURRENT_PAGE as const,
@@ -16,24 +16,19 @@ const setPageSize = (pageSize: number) => ({
   payload: pageSize,
 })
 
-const setFilter = (filter: string) => ({
+const setFilter = (filter?: string) => ({
   type: ActionTypes.SET_FILTER as const,
   payload: filter,
 })
 
-const setFilterResults = (filterResults: Entries) => ({
-  type: ActionTypes.SET_FILTER_RESULTS as const,
-  payload: filterResults,
-})
-
-const setSortBy = (sortBy: string) => ({
+const setSortBy = (sortBy?: string) => ({
   type: ActionTypes.SET_SORTBY as const,
   payload: sortBy,
 })
 
-const setSortDirection = (sortDirection: "asc" | "desc" | "none") => ({
+const setSortDirection = (sortDirection?: SortDirection) => ({
   type: ActionTypes.SET_SORTDIRECTION as const,
   payload: sortDirection,
 })
 
-export { setCurrentPage, setTotalPages, setPageSize, setFilter, setFilterResults, setSortBy, setSortDirection }
+export { setCurrentPage, setTotalPages, setPageSize, setFilter, setSortBy, setSortDirection }

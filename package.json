@@ -1,6 +1,6 @@
 {
   "name": "@jpotin/data-table-react",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
   "license": "MIT",
   "author": "jpotin@gmail.com",
@@ -9,12 +9,12 @@
     "dist",
     "README.md"
   ],
-  "main": "./dist/data-table.umd.js",
-  "module": "./dist/data-table.es.js",
+  "main": "./dist/DataTable.umd.js",
+  "module": "./dist/DataTable.es.js",
   "exports": {
     ".": {
-      "import": "./dist/data-table.es.js",
-      "require": "./dist/data-table.umd.js"
+      "import": "./dist/DataTable.es.js",
+      "require": "./dist/DataTable.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },

@@ -1,5 +1,5 @@
+import type { SortDirection } from "~/lib/models"
 import type { ActionTypes } from "./action-types"
-import type { Entries } from "../models"
 
 export type SetCurrentPage = {
   type: ActionTypes.SET_CURRENT_PAGE
@@ -18,22 +18,17 @@ export type SetPageSize = {
 
 export type SetFilter = {
   type: ActionTypes.SET_FILTER
-  payload: string
-}
-
-export type SetFilterResults = {
-  type: ActionTypes.SET_FILTER_RESULTS
-  payload: Entries
+  payload?: string
 }
 
 export type SetSortBy = {
   type: ActionTypes.SET_SORTBY
-  payload: string
+  payload?: string
 }
 
 export type SetSortDirection = {
   type: ActionTypes.SET_SORTDIRECTION
-  payload: "asc" | "desc" | "none"
+  payload?: SortDirection
 }
 
-export type Action = SetCurrentPage | SetTotalPages | SetPageSize | SetFilter | SetFilterResults | SetSortBy | SetSortDirection
+export type Action = SetCurrentPage | SetTotalPages | SetPageSize | SetFilter | SetSortBy | SetSortDirection
