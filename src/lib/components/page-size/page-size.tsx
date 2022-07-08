@@ -1,15 +1,14 @@
 import type { ChangeEvent } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import { setPageSize } from "~/lib/reducer/action-creators"
 import options from "~/lib/constants/options"
 
 function PageSize() {
-  const [searchParams, setSearchParams] = useSearchParams()
-
-  const pageSize = parseInt(searchParams.get("pageSize") ?? options.pageSizeOptions[0].toString(), 10)
+  const { state, dispatch } = useDataTableContext()
+  const { pageSize } = state
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    searchParams.set("pageSize", e.target.value)
-    setSearchParams(searchParams)
+    dispatch(setPageSize(parseInt(e.target.value, 10)))
   }
 
   return (

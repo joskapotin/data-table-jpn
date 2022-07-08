@@ -1,7 +1,6 @@
-import { useSearchParams } from "react-router-dom"
 import { v4 as uuidv4 } from "uuid"
-import { useDataTableContext } from "../../../../contexts/DataTableContext"
-import type { Entry, Label } from "../../../../models"
+import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import type { Entry, Label } from "~/lib/models"
 
 type RowProps = {
   entry: Entry
@@ -9,10 +8,7 @@ type RowProps = {
 
 function Row({ entry }: RowProps) {
   const { state } = useDataTableContext()
-  const [searchParams] = useSearchParams()
-
-  const { labels } = state
-  const sortBy = searchParams.get("sortBy")
+  const { labels, sortBy } = state
 
   return (
     <tr>

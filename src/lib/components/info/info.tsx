@@ -1,15 +1,10 @@
-import { useSearchParams } from "react-router-dom"
-import options from "~/lib/constants/options"
-import { useDataTableContext } from "~/lib/contexts/DataTableContext"
+import { useDataTableContext } from "~/lib/contexts/dataTableContext"
 
 function Info() {
   const {
-    state: { entries, totalPages, filterResults },
+    state: { entries, currentPage, totalPages, pageSize, filterResults },
   } = useDataTableContext()
-  const [searchParams] = useSearchParams()
 
-  const currentPage = parseInt(searchParams.get("currentPage") ?? "1", 10)
-  const pageSize = parseInt(searchParams.get("pageSize") ?? options.pageSizeOptions[0].toString(), 10)
   const totalEntries = entries.length
   const totalRow = filterResults
   const firstRow = totalRow > 0 ? (currentPage - 1) * pageSize + 1 : 0

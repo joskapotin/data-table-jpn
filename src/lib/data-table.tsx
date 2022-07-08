@@ -1,4 +1,4 @@
-import DataTableContextProvider from "./contexts/DataTableContext"
+import DataTableContextProvider from "./contexts/dataTableContext"
 import { v4 as uuidv4 } from "uuid"
 import PageSize from "./components/page-size/page-size"
 import Filter from "./components/filter/filter"

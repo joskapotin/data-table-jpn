@@ -1,31 +1,27 @@
-import { useSearchParams } from "react-router-dom"
-import type { Label } from "../../../../models"
+import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import { setSortBy, setSortDirection } from "~/lib/reducer/action-creators"
+import type { Label } from "~/lib/models"
 
 type ColumnProps = {
   label: Label
 }
 
 function Column({ label }: ColumnProps) {
-  const [searchParams, setSearchParams] = useSearchParams()
-
-  const sortBy = searchParams.get("sortBy")
-  const sortDirection = searchParams.get("sortDirection")
+  const { state, dispatch } = useDataTableContext()
+  const { sortBy, sortDirection } = state
 
   const handleClick = () => {
-    searchParams.set("sortBy", label.data)
+    dispatch(setSortBy(label.data))
     switch (sortDirection) {
       case "asc":
-        searchParams.set("sortDirection", "desc")
-        setSearchParams(searchParams)
+        dispatch(setSortDirection("desc"))
         break
       case "desc":
-        searchParams.delete("sortBy")
-        searchParams.delete("sortDirection")
-        setSearchParams(searchParams)
+        dispatch(setSortBy(""))
+        dispatch(setSortDirection("none"))
         break
       default:
-        searchParams.set("sortDirection", "asc")
-        setSearchParams(searchParams)
+        dispatch(setSortDirection("asc"))
     }
   }
 

@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import DataTable from "~/lib/data-table"
 import mockedEmployees from "./mock/employees"
 
@@ -18,13 +17,7 @@ const data = {
 }
 
 function Example() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<DataTable data={data} />} />
-      </Routes>
-    </Router>
-  )
+  return <DataTable data={data} />
 }
 
 export default Example

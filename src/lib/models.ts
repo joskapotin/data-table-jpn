@@ -11,6 +11,11 @@ export type Data = {
 export type DataTableState = {
   labels: Labels
   entries: Entries
+  currentPage: number
   totalPages: number
+  pageSize: number
+  filter: string
   filterResults: number
+  sortBy: string
+  sortDirection: "asc" | "desc" | "none"
 }

@@ -1,8 +1,6 @@
 import { useEffect } from "react"
-import { useSearchParams } from "react-router-dom"
 import { v4 as uuidv4 } from "uuid"
-import options from "~/lib/constants/options"
-import { useDataTableContext } from "~/lib/contexts/DataTableContext"
+import { useDataTableContext } from "~/lib/contexts/dataTableContext"
 import { setTotalPages } from "~/lib/reducer/action-creators"
 import PageItem from "./page-item/page-item"
 
@@ -12,12 +10,9 @@ type PaginateProps = {
 
 function Paginate({ tableId }: PaginateProps) {
   const {
-    state: { totalPages, filterResults },
+    state: { totalPages, pageSize, filterResults },
     dispatch,
   } = useDataTableContext()
-  const [searchParams] = useSearchParams()
-
-  const pageSize = parseInt(searchParams.get("pageSize") ?? options.pageSizeOptions[0].toString(), 10)
 
   useEffect(() => {
     dispatch(setTotalPages(Math.ceil(filterResults / pageSize)))

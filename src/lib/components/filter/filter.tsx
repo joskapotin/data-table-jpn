@@ -1,19 +1,13 @@
 import type { ChangeEvent } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useDataTableContext } from "~/lib/contexts/dataTableContext"
+import { setFilter } from "~/lib/reducer/action-creators"
 
 function Filter() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const filter = searchParams.get("filter") ?? ""
+  const { state, dispatch } = useDataTableContext()
+  const { filter } = state
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length > 0) {
-      searchParams.set("filter", e.target.value)
-      searchParams.set("currentPage", "1")
-      setSearchParams(searchParams)
-    } else {
-      searchParams.delete("filter")
-      setSearchParams(searchParams)
-    }
+    dispatch(setFilter(e.target.value))
   }
 
   return (
