@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/lib/data-table.tsx"),
-      name: "Data-table-react",
+      name: "@jpotin/data-table-react",
       fileName: format => `data-table.${format}.js`,
     },
     rollupOptions: {
