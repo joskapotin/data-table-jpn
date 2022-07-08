@@ -15,7 +15,7 @@ export type DataTableState = {
   totalPages: number
   pageSize: number
   filter: string
-  filterResults: number
+  filterResults: Entries
   sortBy: string
   sortDirection: "asc" | "desc" | "none"
 }

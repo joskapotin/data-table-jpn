@@ -1,4 +1,5 @@
-import options from "../constants/options"
+import { filterEntries } from "~/lib/utilities/helpers"
+import options from "~/lib/constants/options"
 import { ActionTypes } from "./action-types"
 import type { Action } from "./actions"
 import type { DataTableState } from "~/lib/models"
@@ -10,7 +11,7 @@ const initialState: DataTableState = {
   totalPages: 0,
   pageSize: options.pageSizeOptions[0],
   filter: "",
-  filterResults: 0,
+  filterResults: [],
   sortBy: "",
   sortDirection: "none",
 }
@@ -25,11 +26,11 @@ function reducer(state: DataTableState, action: Action) {
     case ActionTypes.SET_TOTAL_PAGES:
       return { ...state, totalPages: action.payload }
     case ActionTypes.SET_PAGE_SIZE:
-      return { ...state, pageSize: action.payload }
+      return { ...state, pageSize: action.payload, totalPages: Math.ceil(state.filterResults.length / action.payload) }
     case ActionTypes.SET_FILTER:
-      return { ...state, filter: action.payload, currentPage: 1 }
+      return { ...state, filter: action.payload, currentPage: 1, filterResults: filterEntries({ entries: state.entries, filter: action.payload }) }
     case ActionTypes.SET_FILTER_RESULTS:
-      return { ...state, filterResults: action.payload }
+      return { ...state, filterResults: action.payload, totalPages: Math.ceil(state.filterResults.length / state.pageSize) }
     case ActionTypes.SET_SORTBY:
       return { ...state, sortBy: action.payload }
     case ActionTypes.SET_SORTDIRECTION:

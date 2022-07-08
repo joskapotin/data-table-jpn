@@ -6,10 +6,12 @@ function Info() {
   } = useDataTableContext()
 
   const totalEntries = entries.length
-  const totalRow = filterResults
+  const totalRow = filterResults.length
   const firstRow = totalRow > 0 ? (currentPage - 1) * pageSize + 1 : 0
   const lastRow = pageSize > totalRow || currentPage === totalPages ? totalRow : currentPage * pageSize
   const isFilter = totalRow !== totalEntries
+
+  console.info("info rendered")
 
   return (
     <p className="dataTable_info" role="status" aria-live="polite">

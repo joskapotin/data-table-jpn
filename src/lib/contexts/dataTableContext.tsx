@@ -17,7 +17,12 @@ type DataTableContextProviderProps = {
 const DataTableContext = createContext<DataTableContextType | undefined>(undefined)
 
 function DataTableContextProvider({ data, children }: DataTableContextProviderProps) {
-  const init: DataTableState = { ...initialState, ...data }
+  const init: DataTableState = {
+    ...initialState,
+    ...data,
+    totalPages: Math.ceil(data.entries.length / initialState.pageSize),
+    filterResults: data.entries,
+  }
   const [state, dispatch] = useReducer(reducer, init)
   const value: DataTableContextType = useMemo(
     () => ({

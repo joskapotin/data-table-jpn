@@ -1,4 +1,5 @@
 import { ActionTypes } from "./action-types"
+import type { Entries } from "../models"
 
 const setCurrentPage = (currentPage: number) => ({
   type: ActionTypes.SET_CURRENT_PAGE as const,
@@ -20,7 +21,7 @@ const setFilter = (filter: string) => ({
   payload: filter,
 })
 
-const setFilterResults = (filterResults: number) => ({
+const setFilterResults = (filterResults: Entries) => ({
   type: ActionTypes.SET_FILTER_RESULTS as const,
   payload: filterResults,
 })

@@ -30,6 +30,8 @@ function PageItem({ tableId, pageIndex, text }: PageItemProps) {
     dispatch(setCurrentPage(newPageIndex))
   }
 
+  console.info("page-item rendered")
+
   return (
     <li className="page-item">
       <button

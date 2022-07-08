@@ -1,12 +1,14 @@
 import { v4 as uuidv4 } from "uuid"
+import { useDataTableContext } from "~/lib/contexts/dataTableContext"
 import Column from "./column/column"
-import type { Labels, Label } from "~/lib/models"
+import type { Label } from "~/lib/models"
 
-type HeadProps = {
-  labels: Labels
-}
+function Head() {
+  const { state } = useDataTableContext()
+  const { labels } = state
 
-function Head({ labels }: HeadProps) {
+  console.info("head rendered")
+
   return (
     <thead>
       <tr>

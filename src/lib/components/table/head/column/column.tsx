@@ -33,6 +33,8 @@ function Column({ label }: ColumnProps) {
     return "sorting"
   }
 
+  console.info("column rendered")
+
   return (
     <th onClick={() => handleClick()} className={getLabelClassName()}>
       {label.title}

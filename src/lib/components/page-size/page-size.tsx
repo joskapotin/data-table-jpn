@@ -11,6 +11,8 @@ function PageSize() {
     dispatch(setPageSize(parseInt(e.target.value, 10)))
   }
 
+  console.info("pageSize rendered")
+
   return (
     <label htmlFor="page-size">
       show{" "}

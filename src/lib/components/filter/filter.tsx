@@ -10,6 +10,8 @@ function Filter() {
     dispatch(setFilter(e.target.value))
   }
 
+  console.info("filter rendered")
+
   return (
     <label htmlFor="search" id="dataTable-search">
       Search:{" "}

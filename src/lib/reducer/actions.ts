@@ -1,4 +1,5 @@
 import type { ActionTypes } from "./action-types"
+import type { Entries } from "../models"
 
 export type SetCurrentPage = {
   type: ActionTypes.SET_CURRENT_PAGE
@@ -22,7 +23,7 @@ export type SetFilter = {
 
 export type SetFilterResults = {
   type: ActionTypes.SET_FILTER_RESULTS
-  payload: number
+  payload: Entries
 }
 
 export type SetSortBy = {
