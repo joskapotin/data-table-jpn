@@ -1,9 +1,9 @@
 import { useMemo } from "react"
 import { v4 as uuidv4 } from "uuid"
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
-import { sortEntries } from "~/lib/utilities/helpers"
+import useDataTableContext from "../../../hooks/useDataTableContext/useDataTableContext"
+import { sortEntries } from "../../../utilities/helpers"
 import Row from "./row/row"
-import type { Entry } from "~/lib/models"
+import type { Entry } from "../../../models"
 
 function Body() {
   const { state } = useDataTableContext()

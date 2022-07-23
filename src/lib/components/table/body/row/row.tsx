@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid"
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
-import type { Entry, Label } from "~/lib/models"
+import useDataTableContext from "../../../../hooks/useDataTableContext/useDataTableContext"
+import type { Entry, Label } from "../../../../models"
 
 type RowProps = {
   entry: Entry

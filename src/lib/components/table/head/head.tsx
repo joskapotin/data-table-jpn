@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid"
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
+import useDataTableContext from "../../../hooks/useDataTableContext/useDataTableContext"
 import Column from "./column/column"
-import type { Label } from "~/lib/models"
+import type { Label } from "../../../models"
 
 function Head() {
   const { state } = useDataTableContext()

@@ -1,8 +1,8 @@
 import { createContext, useReducer, useMemo } from "react"
 import type { Dispatch, ReactNode } from "react"
-import reducer from "~/lib/reducer/reducer"
-import type { Action } from "~/lib/reducer/actions"
-import type { DataTableState } from "~/lib/models"
+import reducer from "../reducer/reducer"
+import type { Action } from "../reducer/actions"
+import type { DataTableState } from "../models"
 
 type DataTableContextType = {
   state: DataTableState

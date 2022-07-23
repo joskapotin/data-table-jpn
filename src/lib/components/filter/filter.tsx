@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react"
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
-import { setFilter } from "~/lib/reducer/action-creators"
+import useDataTableContext from "../../hooks/useDataTableContext/useDataTableContext"
+import { setFilter } from "../../reducer/action-creators"
 
 function Filter() {
   const { state, dispatch } = useDataTableContext()

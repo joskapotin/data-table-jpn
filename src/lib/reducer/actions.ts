@@ -1,4 +1,4 @@
-import type { SortDirection } from "~/lib/models"
+import type { SortDirection } from "../models"
 import type { ActionTypes } from "./action-types"
 
 export type SetCurrentPage = {

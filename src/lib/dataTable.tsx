@@ -1,6 +1,6 @@
 import DataTableContextProvider from "./contexts/dataTableContext"
 import { v4 as uuidv4 } from "uuid"
-import options from "~/lib/constants/options"
+import options from "./constants/options"
 import PageSize from "./components/page-size/page-size"
 import Filter from "./components/filter/filter"
 import Table from "./components/table/table"

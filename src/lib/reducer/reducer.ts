@@ -1,7 +1,7 @@
-import { filterEntries } from "~/lib/utilities/helpers"
+import { filterEntries } from "../utilities/helpers"
 import { ActionTypes } from "./action-types"
 import type { Action } from "./actions"
-import type { DataTableState } from "~/lib/models"
+import type { DataTableState } from "../models"
 
 function reducer(state: DataTableState, action: Action) {
   switch (action.type) {

@@ -1,5 +1,5 @@
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
-import { setCurrentPage } from "~/lib/reducer/action-creators"
+import useDataTableContext from "../../../hooks/useDataTableContext/useDataTableContext"
+import { setCurrentPage } from "../../../reducer/action-creators"
 
 type PageItemProps = {
   tableId: string

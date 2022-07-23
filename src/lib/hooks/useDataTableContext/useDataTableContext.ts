@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { DataTableContext } from "~/lib/contexts/dataTableContext"
+import { DataTableContext } from "../../contexts/dataTableContext"
 
 function useDataTableContext() {
   const context = useContext(DataTableContext)

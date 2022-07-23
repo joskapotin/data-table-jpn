@@ -1,4 +1,4 @@
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
+import useDataTableContext from "../../hooks/useDataTableContext/useDataTableContext"
 
 function Info() {
   const {

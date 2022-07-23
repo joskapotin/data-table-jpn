@@ -1,4 +1,4 @@
-import { SortDirection } from "~/lib/models"
+import { SortDirection } from "../models"
 import { ActionTypes } from "./action-types"
 
 const setCurrentPage = (currentPage: number) => ({

@@ -1,6 +1,6 @@
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
-import { setSortBy, setSortDirection } from "~/lib/reducer/action-creators"
-import type { Label } from "~/lib/models"
+import useDataTableContext from "../../../../hooks/useDataTableContext/useDataTableContext"
+import { setSortBy, setSortDirection } from "../../../../reducer/action-creators"
+import type { Label } from "../../../../models"
 
 type ColumnProps = {
   label: Label

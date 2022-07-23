@@ -1,7 +1,7 @@
 import type { ChangeEvent } from "react"
-import useDataTableContext from "~/lib/hooks/useDataTableContext/useDataTableContext"
-import { setPageSize } from "~/lib/reducer/action-creators"
-import options from "~/lib/constants/options"
+import useDataTableContext from "../../hooks/useDataTableContext/useDataTableContext"
+import { setPageSize } from "../../reducer/action-creators"
+import options from "../../constants/options"
 
 function PageSize() {
   const { state, dispatch } = useDataTableContext()
