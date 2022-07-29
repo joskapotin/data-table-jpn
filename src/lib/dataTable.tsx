@@ -18,23 +18,22 @@ function DataTable({ data }: DataTableProps) {
   const tableId = uuidv4()
 
   /**
-   * Creation of the initial state of the table.
+   * Create the initial state of the table.
    */
   const { labels, entries, sortBy, sortDirection } = data
   const pageSize = options.pageSizeOptions[0]
   const totalPages = Math.ceil(entries.length / pageSize)
   const filterResults = entries
-  const initialState: DataTableState = {
+  const initialState = {
     labels,
     entries,
     currentPage: 1,
     pageSize,
     totalPages,
-    filter: "",
     filterResults,
     sortBy,
     sortDirection,
-  }
+  } as DataTableState
 
   return (
     <DataTableContextProvider initialState={initialState}>

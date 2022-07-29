@@ -1,21 +1,21 @@
 import type { Entries } from "../models"
 
-export type IsDateFunction = (date: string) => boolean
+type IsDateFunction = (date: string) => boolean
 
-export type SortEntriesProps = {
+type SortEntriesProps = {
   entries: Entries
   sortBy?: string
   sortDirection?: string
 }
 
-export type SortEntriesFunction = (props: SortEntriesProps) => Entries
+type SortEntriesFunction = (props: SortEntriesProps) => Entries
 
-export type FilterEntriesProps = {
+type FilterEntriesProps = {
   entries: Entries
   filter?: string
 }
 
-export type FilterEntriesFunction = (props: FilterEntriesProps) => Entries
+type FilterEntriesFunction = (props: FilterEntriesProps) => Entries
 
 /**
  * It takes in a string, check if it is a valid date and return the result
