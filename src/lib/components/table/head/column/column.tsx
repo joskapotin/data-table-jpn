@@ -35,8 +35,6 @@ function Column({ label }: ColumnProps) {
     if (sortDirection === "desc") return "sorting sorting_desc"
   }
 
-  console.info("column rendered")
-
   return (
     <th onClick={() => handleClick()} className={getLabelClassName()}>
       {label.title}

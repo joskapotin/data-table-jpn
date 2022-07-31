@@ -12,8 +12,6 @@ function Body() {
   const sortedEntries = useMemo(() => sortEntries({ entries: filterResults, sortBy, sortDirection }), [filterResults, sortBy, sortDirection])
   const paginatedEntries = sortedEntries.slice((currentPage - 1) * pageSize, currentPage * pageSize)
 
-  console.info("body rendered")
-
   return (
     <tbody className="table-group-divider">
       {paginatedEntries.map((entry: Entry) => (

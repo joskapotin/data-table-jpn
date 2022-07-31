@@ -6,8 +6,6 @@ type TableProps = {
 }
 
 function Table({ tableId }: TableProps) {
-  console.info("table rendered")
-
   return (
     <div className="table-responsive">
       <table className="dataTable table table-striped" id={tableId}>

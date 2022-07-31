@@ -7,8 +7,6 @@ function Head() {
   const { state } = useDataTableContext()
   const { labels } = state
 
-  console.info("head rendered")
-
   return (
     <thead>
       <tr>

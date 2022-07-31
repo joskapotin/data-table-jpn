@@ -30,8 +30,6 @@ function Paginate({ tableId }: PaginateProps) {
     return pageElements
   }, [totalPages, tableId])
 
-  console.info("paginate rendered")
-
   return (
     <nav aria-label="data-table page navigation">
       <ul className="pagination">{PageElements()}</ul>

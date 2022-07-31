@@ -11,8 +11,6 @@ function Info() {
   const lastRow = pageSize > totalRow || currentPage === totalPages ? totalRow : currentPage * pageSize
   const isFilter = totalRow !== totalEntries
 
-  console.info("info rendered")
-
   return (
     <p className="dataTable_info" role="status" aria-live="polite">
       Showing {firstRow} to {lastRow} of {totalRow} entries {isFilter && <span>(filtered from {totalEntries} total entries)</span>}
