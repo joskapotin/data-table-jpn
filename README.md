@@ -1,6 +1,6 @@
-# data-table-jpn
+# data-table-react
 
-[![DataTable previex](preview.png)](preview.png)
+![DataTable preview.png](preview.png)
 
 A react component that display data in a table with features.
 Pagination, search, sorting.
