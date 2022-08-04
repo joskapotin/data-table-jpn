@@ -40,22 +40,30 @@ The value is an object, or a function that return an object in the shape of:
 
 ```
 {
-  labels:
-  [
-    { title: "string", data: "<data>" },
-    ...
+  labels: [
+    { title: 'First Name', data: 'firstName' },
+    { title: 'Last Name', data: 'lastName' },
   ],
-  entries:
-  [
-    { <data>: "string" }
-    ...
-  ]
-}
+  entries: [
+  {
+    firstName: 'Basia',
+    lastName: 'Osborn',
+  },
+  {
+    firstName: 'Galena',
+    lastName: 'Frost',
+  }]
+  ,
+  sortBy: 'firstName',
+  sortDirection: 'asc',
+  }
 ```
 
-Additionaly you can add the initial sorting options like such
+sortBy and sortDirection properties are optionals
+sortDirection can be 'asc' or 'desc'
 
-```
-sortBy: "<data>",
-sortDirection: "asc" or "desc",
-```
+## Typescript
+
+This package contains built-in TypeScript declarations.
+
+sortDirection need to be set as 'asc' | 'desc'

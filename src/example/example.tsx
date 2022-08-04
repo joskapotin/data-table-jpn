@@ -14,6 +14,8 @@ const data = {
     { title: "Zip Code", data: "zipCode" },
   ],
   entries: mockedEmployees,
+  sortBy: "firstName",
+  sortDirection: "asc" as "asc" | "desc",
 }
 
 function Example() {
