@@ -20,7 +20,7 @@ function Filter() {
         aria-describedby="dataTable-search"
         type="search"
         onChange={handleChange}
-        value={filter}
+        value={filter || ""}
       />
     </label>
   )

@@ -1,8 +1,8 @@
-import { createContext, useReducer, useMemo } from "react"
 import type { Dispatch, ReactNode } from "react"
-import reducer from "../reducer/reducer"
-import type { Action } from "../reducer/actions"
+import { createContext, useMemo, useReducer } from "react"
 import type { DataTableState } from "../models"
+import type { Action } from "../reducer/actions"
+import reducer from "../reducer/reducer"
 
 type DataTableContextType = {
   state: DataTableState
@@ -19,7 +19,7 @@ const DataTableContext = createContext<DataTableContextType | undefined>(undefin
 function DataTableContextProvider({ initialState, children }: DataTableContextProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const value: DataTableContextType = useMemo(
+  const value = useMemo(
     () => ({
       state,
       dispatch,

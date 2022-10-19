@@ -6,14 +6,13 @@ function Info() {
   } = useDataTableContext()
 
   const totalEntries = entries.length
-  const totalRow = filterResults.length
-  const firstRow = totalRow > 0 ? (currentPage - 1) * pageSize + 1 : 0
-  const lastRow = pageSize > totalRow || currentPage === totalPages ? totalRow : currentPage * pageSize
-  const isFilter = totalRow !== totalEntries
+  const firstRow = filterResults > 0 ? (currentPage - 1) * pageSize + 1 : 0
+  const lastRow = pageSize > filterResults || currentPage === totalPages ? filterResults : currentPage * pageSize
+  const isFilter = filterResults !== totalEntries
 
   return (
     <p className="dataTable_info" role="status" aria-live="polite">
-      Showing {firstRow} to {lastRow} of {totalRow} entries {isFilter && <span>(filtered from {totalEntries} total entries)</span>}
+      Showing {firstRow} to {lastRow} of {filterResults} entries {isFilter && <span>(filtered from {totalEntries} total entries)</span>}
     </p>
   )
 }

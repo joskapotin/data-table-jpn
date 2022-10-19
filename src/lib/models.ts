@@ -18,7 +18,7 @@ export type DataTableState = {
   totalPages: number
   pageSize: number
   filter?: string
-  filterResults: Entries
+  filterResults: number
   sortBy?: string
   sortDirection?: SortDirection
 }
